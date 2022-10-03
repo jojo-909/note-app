@@ -10,7 +10,6 @@ class Auth with ChangeNotifier {
   String? _userId;
   String? _userName;
   bool newUSer = true;
-  
 
   bool get isAuth {
     return _token != null;
@@ -36,7 +35,7 @@ class Auth with ChangeNotifier {
   Future<void> _authenticate(String email, String password, String urlSegment,
       {String? userName}) async {
     final url = Uri.parse(
-        "https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=AIzaSyD1ypqBWJ6SDxfT0MDvF9LvzcIeNDLSz_s");
+        "https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key={APIKEY}");
     try {
       final response = await http.post(url,
           body: json.encode({
